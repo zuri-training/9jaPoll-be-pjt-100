@@ -1,1 +1,2 @@
-console.log("Welcome to 9jaPoll");
+console.log("WElcome to 9japoll");
+console.log("WElcome to 9japo");
