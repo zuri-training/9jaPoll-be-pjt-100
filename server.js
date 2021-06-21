@@ -1,6 +1,4 @@
-console.log("Welcome to 9jaPoll");
 const express = require("express");
-const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
@@ -16,13 +14,16 @@ const port = process.env.PORT || 5000;
 // Connect to the database
 dbSetup();
 
+// init express
+const app = express();
+
 // CORS and expressJSON Middlewares
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
-// Dummy route
-app.get("/dummy", (req, res) => {
-  res.send("Welcome to 9jaPoll");
+// test route
+app.get("/test", (req, res) => {
+  res.send("Welcome to 9jaPoll...");
 });
 
 // use routes
