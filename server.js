@@ -4,6 +4,7 @@ require("dotenv").config();
 
 // Import routes
 const articleRoutes = require("./routes/article");
+const authRoutes = require("./routes/auth");
 
 // DB import
 const dbSetup = require("./db/connectDB");
@@ -27,7 +28,8 @@ app.get("/test", (req, res) => {
 });
 
 // use routes
-app.use(articleRoutes);
+app.use("/api/v1", articleRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 // Listen
 app.listen(port, () => {
