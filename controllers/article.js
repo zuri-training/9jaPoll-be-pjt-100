@@ -13,7 +13,14 @@ const createArticle = async (req, res) => {
 // Fetch all articles route
 const getAllArticles = async (req, res) => {
   try {
-    const articles = await Article.find({});
+    let search = {};
+    if (req.query.title) {
+      search.title = req.query.title;
+    }
+
+    console.log(search);
+
+    const articles = await Article.find(search);
     res.status(200).json({ msg: "Here are the articles", articles });
   } catch (err) {
     res.status(500).json({ msg: err });
