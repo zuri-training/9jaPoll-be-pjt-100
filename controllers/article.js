@@ -18,10 +18,19 @@ const getAllArticles = async (req, res) => {
       search.title = req.query.title;
     }
 
-    console.log(search);
-
     const articles = await Article.find(search);
     res.status(200).json({ msg: "Here are the articles", articles });
+  } catch (err) {
+    res.status(500).json({ msg: err });
+  }
+};
+
+// Fetch recent articles
+const recentArticles = async (req, res) => {
+  try {
+    const articles = await Article.find().sort({ createdAt: -1 }).limit(3);
+
+    res.json(articles);
   } catch (err) {
     res.status(500).json({ msg: err });
   }
@@ -78,6 +87,7 @@ module.exports = {
   createArticle,
   getAllArticles,
   getSingleArticle,
+  recentArticles,
   updateArticle,
   deleteArticle,
 };

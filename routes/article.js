@@ -5,6 +5,7 @@ const {
   createArticle,
   getAllArticles,
   getSingleArticle,
+  recentArticles,
   updateArticle,
   deleteArticle,
 } = require("../controllers/article");
@@ -17,6 +18,9 @@ router.get("/articles", getAllArticles);
 
 // Get single article
 router.get("/article/:id", getSingleArticle);
+
+// Get recent articles
+router.get("/recentArticles", recentArticles);
 
 // Update article
 router.put("/article/:id", updateArticle);
