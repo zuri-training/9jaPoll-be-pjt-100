@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/v1/aspirant', require('./routes/aspirant'));
 
-// error handler should be the last piece of middleware
+// error handler middleware
 app.use(errorHandler);
 
 const server = app.listen(PORT, () => console.log(`Server started on http://localhost:${PORT}`))
