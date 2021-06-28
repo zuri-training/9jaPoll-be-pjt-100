@@ -21,11 +21,7 @@ const register = async (req, res, next) => {
         const user = await User.create({
             firstname, lastname, middlename, email, state, party, position, password
         });
-        res.status(201).json({
-            success: true,
-            token: 'lkajflajlfalkdfa'
-        })
-        // sendToken(user, 201, res);
+        sendToken(user, 201, res);
     } catch (error) {
         next(error);
     }
@@ -49,12 +45,7 @@ const login = async (req, res, next) => {
         if(!isMatch) {
             return next(new ErrorResponse("Invalid credentials", 401))
         }
-        res.status(200).json({
-            success: true,
-            user,
-            token: "ihdfkgdjkfhaifhadsioadf"
-        })
-        // sendToken(user, 200, res);
+        sendToken(user, 200, res);
     } catch (error) {
         res.status(500).json({
             success: false,
@@ -64,13 +55,13 @@ const login = async (req, res, next) => {
 };
 
 
-// const sendToken = (user, statusCode, res) => {
-//     const token = user.getSignedToken();
-//     res.status(statusCode).json({
-//         success: true,
-//         token
-//     })
-// }
+const sendToken = (user, statusCode, res) => {
+    const token = user.getSignedToken();
+    res.status(statusCode).json({
+        success: true,
+        token
+    })
+}
 
 module.exports = {
     register,
