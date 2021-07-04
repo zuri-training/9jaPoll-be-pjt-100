@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+// Error HAndler middleware
+const errorHandler = require("./middlewares/errorHandler");
+
 // Import routes
 const articleRoutes = require("./routes/article");
 const authRoutes = require("./routes/auth");
@@ -32,6 +35,9 @@ app.get("/test", (req, res) => {
 app.use("/api/v1", articleRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1", aspirantRoutes);
+
+// Error handler
+app.use(errorHandler);
 
 // Listen
 app.listen(port, () => {
