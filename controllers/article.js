@@ -29,7 +29,7 @@ const recentArticles = asyncWrapper(async (req, res) => {
 const getSingleArticle = asyncWrapper(async (req, res) => {
   const article = await Article.findById(req.params.id);
   if (!article) {
-    return res.status(404).json({ msg: "Article not found" });
+    return res.status(404).json({ msg: "Article does not exist" });
   }
 
   res.status(200).json({ msg: "Here is the article", article });
