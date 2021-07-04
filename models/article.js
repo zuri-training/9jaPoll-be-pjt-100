@@ -11,7 +11,7 @@ const articleSchema = new mongoose.Schema(
       required: [true, "Author is required"],
     },
     headerImg: {
-      type: String,
+      data: "Buffer", type: String,
     },
     description: {
       type: String,
