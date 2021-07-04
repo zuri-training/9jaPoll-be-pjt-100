@@ -6,7 +6,7 @@ const createAspirant = async (req, res) => {
     const aspirant = await AspirantProfile.create(req.body);
     res
       .status(201)
-      .json({ msg: "Aspirant profile created successfully", aspirant });
+      .json({ msg: "Aspirant profile created successfully:", aspirant });
   } catch (err) {
     res.status(500).json({ msg: err });
   }
