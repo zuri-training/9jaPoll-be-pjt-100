@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 // test route
-app.get("/test", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome to 9jaPoll...");
 });
 
