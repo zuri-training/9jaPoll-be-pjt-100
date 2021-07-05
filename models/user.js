@@ -41,6 +41,36 @@ const userSchema = new mongoose.Schema({
   passwordChangeAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  username: {
+    type: String,
+    unique: true,
+    required:true,
+  },
+  gender: {
+      type: String,
+      enum: ["male", "female"],
+      required:false,
+  },
+  profileImg: {
+    type: String,
+    required:false,
+  },
+  headerImg: {
+    type: String,
+  },
+  education: [{type: Object, detail: {
+    major: String,
+    school: String,
+    required:false,
+  }}],
+  hobbies: [{type: String, detail: {
+    hobby: String,
+    required:false,
+  }}],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 // Middleware for encrypting password on pre save
