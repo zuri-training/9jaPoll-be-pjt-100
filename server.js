@@ -9,6 +9,7 @@ const errorHandler = require("./middlewares/errorHandler");
 const articleRoutes = require("./routes/article");
 const authRoutes = require("./routes/auth");
 const aspirantRoutes = require("./routes/aspirantProfile");
+const userRoutes = require("./routes/userProfile");
 
 // DB import
 const dbSetup = require("./db/connectDB");
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", articleRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1", aspirantRoutes);
+app.use("/api/v1", userRoutes);
 
 // Error handler
 app.use(errorHandler);

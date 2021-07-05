@@ -15,3 +15,4 @@ router.post("/forgotPassword", forgotPassword);
 router.patch("/resetPassword/:token", resetPassword);
 
 module.exports = router;
+
