@@ -1,6 +1,9 @@
 const express = require("express");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 const cors = require("cors");
 require("dotenv").config();
+
 
 // Error HAndler middleware
 const errorHandler = require("./middlewares/errorHandler");
@@ -40,6 +43,29 @@ app.use("/api/v1", userRoutes);
 
 // Error handler
 app.use(errorHandler);
+
+// Swagger documentation option guide
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "9japoll API Documentation",
+      version: "1.0.0",
+      description: "API Documentation for the 9japoll Web Application",
+    },
+    servers: [
+      {
+        url: "localhost:4000/api/v1/",
+      },
+    ],
+  },
+  apis: ["./routes/*.js"],
+};
+
+//Swagger specification
+const specs = swaggerJsDoc(options);
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 // Listen
 app.listen(port, () => {
