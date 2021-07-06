@@ -124,7 +124,7 @@ const deleteUser = async (req, res) => {
   } catch (err) {
     res.status(500).json({ msg: err });
   }
-};
+}; 
 
 module.exports = {
   getAllUsers,

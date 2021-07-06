@@ -43,29 +43,39 @@ const userSchema = new mongoose.Schema({
   passwordResetExpires: Date,
   username: {
     type: String,
-    required:false,
+    required: false,
   },
   gender: {
-      type: String,
-      enum: ["male", "female"],
-      required:false,
+    type: String,
+    enum: ["male", "female"],
+    required: false,
   },
   profileImg: {
     type: String,
-    required:false,
+    required: false,
   },
   headerImg: {
     type: String,
   },
-  education: [{type: Object, detail: {
-    major: String,
-    school: String,
-    required:false,
-  }}],
-  hobbies: [{type: String, detail: {
-    hobby: String,
-    required:false,
-  }}],
+  education: [
+    {
+      type: Object,
+      detail: {
+        major: String,
+        school: String,
+        required: false,
+      },
+    },
+  ],
+  hobbies: [
+    {
+      type: String,
+      detail: {
+        hobby: String,
+        required: false,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
