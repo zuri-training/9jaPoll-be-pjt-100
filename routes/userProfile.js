@@ -7,8 +7,7 @@ const {
   recentUsers,
   updateUser,
   deleteUser,
-} = require("../controllers/userprofile.js");
-
+} = require("../controllers/userProfile");
 
 /**
  * @swagger
@@ -49,7 +48,7 @@ const {
  *         profileImg:
  *           type: String
  *           description: User profile image
- *         headerImg: 
+ *         headerImg:
  *           type: String
  *           description: User header image
  *         education:
@@ -66,14 +65,14 @@ const {
  *         username: johndoe
  */
 
- /**
-  * @swagger
-  * tags:
-  *   name: Users
-  *   description: 9JAPOLL API Documentation V1.0.0
-  */
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: 9JAPOLL API Documentation V1.0.0
+ */
 
- /**
+/**
  * @swagger
  * /api/v1/users:
  *   get:
@@ -117,7 +116,7 @@ router.get("/users", getAllUsers);
  */
 router.get("/users/:id", getSingleUser);
 
- /**
+/**
  * @swagger
  * /api/v1/newusers:
  *   get:
@@ -136,14 +135,13 @@ router.get("/users/:id", getSingleUser);
 // GET request to /users to fetch all users
 router.get("/users/newusers", recentUsers);
 
-
 /**
  * @swagger
  * /api/v1/users/{id}:
  *  patch:
  *    summary: Update the user by the id
  *    tags: [Users]
-  *    parameters:
+ *    parameters:
  *      - in: path
  *        name: id
  *        schema:
@@ -161,7 +159,7 @@ router.get("/users/newusers", recentUsers);
  *              firstname: Mark
  *              lastname: Essien
  *              email: mark@gmail.com
- *           
+ *
  *    responses:
  *      200:
  *        description: The user was updated successfully
@@ -191,7 +189,7 @@ router.patch("/users/:id", updateUser);
  *           type: string
  *         required: true
  *         description: The user id
- * 
+ *
  *     responses:
  *       200:
  *         description: The user was deleted successfully
@@ -202,4 +200,3 @@ router.patch("/users/:id", updateUser);
 router.delete("/users/:id", deleteUser);
 
 module.exports = router;
-
